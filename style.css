@@ -41,7 +41,8 @@ body{
     width: 100%;
     bottom: -40%;
     transition: all ease 0.25s;
-    background: linear-gradient(rgba(244, 242, 242, 0.271) ,#8b0002));}
+    background: linear-gradient(rgba(244, 242, 242, 0.271) ,#8b0002);
+}
 
 .card:hover .bottom{
     bottom: 0%;
@@ -54,7 +55,7 @@ body{
     text-align: center;
     transition: all ease 0.3s;
     text-shadow: 2px 5px 4px black;
-}
+ }
 .bottom h1:hover{
     color: rgb(0, 156, 245);
     cursor: pointer;
