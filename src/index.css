@@ -1,0 +1,114 @@
+@import "tailwindcss";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(16, 185, 129, 0.18), transparent 25%),
+    radial-gradient(circle at bottom right, rgba(59, 130, 246, 0.16), transparent 25%),
+    linear-gradient(135deg, #09090b, #111827, #0f172a);
+  color: white;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.form-wrapper {
+  width: 100%;
+  max-width: 700px;
+}
+
+.form-card {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 28px;
+  padding: 28px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.form-header {
+  margin-bottom: 24px;
+}
+
+.form-header h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -1px;
+  margin-bottom: 10px;
+}
+
+.form-header p {
+  font-size: 1rem;
+  color: #a1a1aa;
+}
+
+.form-row {
+  display: flex;
+  gap: 16px;
+  flex-direction: column;
+}
+
+.form-input {
+  flex: 1;
+  padding: 16px 20px;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(24, 24, 27, 0.9);
+  color: white;
+  font-size: 1rem;
+  outline: none;
+  transition: 0.25s ease;
+}
+
+.form-input::placeholder {
+  color: #71717a;
+}
+
+.form-input:focus {
+  border-color: #34d399;
+  box-shadow: 0 0 0 4px rgba(52, 211, 153, 0.18);
+}
+
+.form-button {
+  border: none;
+  padding: 16px 24px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.form-button:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #34d399, #10b981);
+  box-shadow: 0 12px 24px rgba(16, 185, 129, 0.3);
+}
+
+.form-button:active {
+  transform: scale(0.97);
+}
+
+@media (min-width: 640px) {
+  .form-row {
+    flex-direction: row;
+  }
+
+  .form-button {
+    min-width: 150px;
+  }
+}
