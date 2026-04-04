@@ -18,6 +18,7 @@ function App() {
 
           <div className="form-row">
             <input
+            required
               type="text"
               placeholder="Enter your text 
               className="form-input
