@@ -1,54 +1,89 @@
-import { useState } from 'react'
-import './App.css'
+import React, { useState } from 'react'
+import Card from './components/Card'
 
-function App() {
-  const [title, setTitle] = useState([''])
-  const [email, setEmail] = useState([''])
+const App = () => {
+
+  const [userName, setUserName] = useState('')
+  const [userRole, setUserRole] = useState('')
+  const [imageURL, setImageURL] = useState('')
+  const [userDesc, setUserDesc] = useState('')
+
   const [allUsers, setAllUsers] = useState([])
 
   const submitHandler = (e) => {
     e.preventDefault()
 
-    console.log(title, email)
+    setAllUsers([...allUsers, { userName, userRole, userDesc, imageURL }])
 
-    setAllUsers(prev => [...prev, { title, email }])
-
-    setTitle('')
-    setEmail('')
+    setUserName('')
+    setUserRole('')
+    setUserDesc('')
+    setImageURL('')
   }
 
+  const deleteHandler = (idx) => {
+    const copyUsers = [...allUsers]
+
+    copyUsers.splice(idx, 1)
+
+    setAllUsers(copyUsers)
+  }
+
+
   return (
-    <div>
-      <form onSubmit={submitHandler}>
-        <div className='main'>
-          <input
-            className='input'
-            type="text"
-            placeholder='Enter name'
-            value={title}
-            required
-            onChange={(e) => setTitle(e.target.value)}
-          />
+    <div className='h-screen bg-black text-white'>
+      <form
+        
+      onSubmit={(e) => {
+        submitHandler(e)
+      }} className='px-2 py-2 flex flex-wrap'>
 
-          <input
-            className='input'
-            type="email"
-            placeholder='Enter Email'
-            value={email}
-            required
-            onChange={(e) => setEmail(e.target.value)}
-          />
+        <input
+          value={userName}
+          onChange={(e) => {
+            setUserName(e.target.value)
+          }}
+          className='border-2 text-xl font-semibold px-5 py-2 rounded m-2 lg:w-[48%]'
+          type="text"
+          placeholder='Enter your name' />
 
-          <button className='btn'>Submit</button>
-        </div>
+        <input
+          value={imageURL}
+          onChange={(e) => {
+            setImageURL(e.target.value)
+          }}
+          className='border-2 text-xl font-semibold px-5 py-2 rounded m-2 lg:w-[48%]'
+          type="text"
+          placeholder='Image URL' />
+
+        <input
+          value={userRole}
+          onChange={(e) => {
+            setUserRole(e.target.value)
+          }}
+          className='border-2 text-xl font-semibold px-5 py-2 rounded m-2 lg:w-[48%]'
+          type="text"
+          placeholder='Enter Role' />
+
+        <input
+          value={userDesc}
+          onChange={(e) => {
+            setUserDesc(e.target.value)
+          }}
+          className='border-2 text-xl font-semibold px-5 py-2 rounded m-2 lg:w-[48%]'
+          type="text"
+          placeholder='Enter Description' />
+
+
+        <button className=' px-5 py-2 text-xl active:scale-95 cursor-pointer font-semibold bg-emerald-700 rounded m-2 w-[97%]'>Create User</button>
       </form>
+      <div className='px-4 py-10 gap-4 flex flex-wrap'>
 
-      {allUsers.map((elem, idx) => (
-        <div key={idx}>
-          <h4>{elem.title}</h4>
-          <p>{elem.email}</p>
-        </div>
-      ))}
+        {allUsers.map(function (elem, idx) {
+          return <Card idx={idx} elem={elem} deleteHandler={deleteHandler} />
+        })}
+
+      </div>
     </div>
   )
 }
