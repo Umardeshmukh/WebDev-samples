@@ -1,0 +1,48 @@
+*main{
+    margin: auto;
+}
+body{
+    background-color: rgb(0, 67, 88);
+}
+
+
+.user_card{
+  height: 300px;
+  width: 250px;
+  border-radius: 10px;
+  margin: 20px;
+  padding: 20px;
+ 
+
+}
+.all_cards{
+  display: flex;
+  flex-wrap: wrap;
+}
+button{
+  padding: 15px 40px;
+  border-radius: 15px;
+  margin: 20px;
+}donot change anything just write css for button
+
+button {
+  padding: 15px 40px;
+  border-radius: 15px;
+  margin: 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+button:active {
+  transform: scale(0.95);
+}
